@@ -30,10 +30,12 @@ const deleteTuit = (req, res) => {
   
 
 export default (app) => {
- app.post('/api', createTuit);
- app.get('/api', findTuits);
- app.put('/api', updateTuit);
- app.delete('/api', deleteTuit);
+ app.post('/api/tuits', createTuit);
+ app.get('/api/tuits', findTuits);
+ app.put('/api/tuits/:tid', updateTuit);
+ app.delete('/api/tuits/:tid', deleteTuit);
+//  app.post('/api/tuits', createTuit);
+//  app.get('/api/tuits', findTuits);
 //  app.put('/api/tuits/:tid', updateTuit);
 //  app.delete('/api/tuits/:tid', deleteTuit);
 }
