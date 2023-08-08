@@ -8,7 +8,6 @@ const UserController = (app) => {
    app.put('/api/users/:uid', updateUser);
 }
 const updateUser = (req, res) => {
-    console.log(3);
     const userId = req.params['uid'];
     const updates = req.body;
     users = users.map((usr) =>
