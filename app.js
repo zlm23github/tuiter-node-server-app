@@ -7,6 +7,9 @@ import "dotenv/config";
 import session from "express-session";
 import AuthController from "./users/auth-controller.js";
 
+
+// const FRONTEND_URL = "http://localhost:3000";
+
 const app = express()
 app.use(cors(
     {
