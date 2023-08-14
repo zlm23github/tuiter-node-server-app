@@ -69,4 +69,4 @@ const findAllUsers = async (req, res) => {
   }
 };
 
-export default UserController
+export default UserController;
