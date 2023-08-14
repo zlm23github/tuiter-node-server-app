@@ -5,6 +5,7 @@ const AuthController = (app) => {
     
     const register = async(req, res) => {
         const user = await usersDao.findUserByUsername(req.body.username);
+        console.log("registed");
         if (user) {
             res.sendStatus(403);
             return;
