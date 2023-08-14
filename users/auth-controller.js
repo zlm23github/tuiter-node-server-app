@@ -70,16 +70,14 @@ import * as usersDao from "./users-dao.js";
 
 
 
-export default (app) => {
-    
-    
+const AuthController = (app) => {
 
     app.post("/api/users/register", register); 
     app.post("/api/users/login",    login);
     app.post("/api/users/profile",  profile);
     app.post("/api/users/logout",   logout);
     app.put ("/api/users",          update);
-}
+} 
 
 
 const register = async(req, res) => {
@@ -138,3 +136,5 @@ const update = async(req, res) => {
     res.json(newUpdate);
 
 };
+
+export default AuthController
