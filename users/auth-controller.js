@@ -2,7 +2,7 @@ import * as usersDao from "./users-dao.js";
 
 
 const AuthController = (app) => {
-    
+    console.log("registed!!!");
     const register = async(req, res) => {
         console.log("registed???");
         const user = await usersDao.findUserByUsername(req.body.username);
