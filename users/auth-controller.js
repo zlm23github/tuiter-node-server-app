@@ -1,6 +1,6 @@
 import * as usersDao from "./users-dao.js";
 
-let currentUser;
+
 const AuthController = (app) => {
 
     const register = async(req, res) => {

@@ -21,7 +21,7 @@ export const findUserByCredentials = (username, password) => {
 
 export const createUser = (user) => {
     usersModel.create(user);
-}
+};
 
 
 export const updateUser = (id, user) => {
