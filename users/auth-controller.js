@@ -1,6 +1,6 @@
 import * as usersDao from "./users-dao.js";
 
-
+let currentUser;
 const AuthController = (app) => {
     
     const register = async(req, res) => {
@@ -11,7 +11,6 @@ const AuthController = (app) => {
         }
         const newUser = await userDao.createUser(req.body);
         req.session["currentUser"] = newUser;
-        console.log("newUser");
         res.json(newUser);
     };
      
