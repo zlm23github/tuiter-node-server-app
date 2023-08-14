@@ -4,11 +4,11 @@ let currentUser;
 const AuthController = (app) => {
 
     const register = async(req, res) => {
-        const user = await usersDao.findUserByUsername(req.body.username);
-        if (user) {
-            res.sendStatus(403);
-            return;
-        }
+        // const user = await usersDao.findUserByUsername(req.body.username);
+        // if (user) {
+        //     res.sendStatus(403);
+        //     return;
+        // }
         const newUser = await userDao.createUser(req.body);
         req.session["currentUser"] = newUser;
         res.json(newUser);
