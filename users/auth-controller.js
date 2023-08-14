@@ -18,6 +18,7 @@ const register = async(req, res) => {
         return;
     }
     const newUser = await usersDao.createUser(req.body);
+    console.log(newUser);
     req.session["currentUser"] = newUser;
     res.json(newUser);
 };
@@ -41,8 +42,10 @@ const login = async(req, res) => {
     
 const profile = (req, res) => {
     const current = req.session["currentUser"];
+    console.log(current);
     // const current = currentUser; 
     if (!current) {
+        console.log("55555");
         res.sendStatus(404);
     return;
     }
