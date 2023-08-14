@@ -9,7 +9,7 @@ import AuthController from "./users/auth-controller.js";
 import mongoose from "mongoose";
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter'
-console.log(CONNECTION_STRING);
+
 mongoose.connect("mongodb+srv://zlm17unl:Zlmsdtobe1@cluster0.az96ub0.mongodb.net/?retryWrites=true&w=majority");
 
 
@@ -41,4 +41,5 @@ TuitsController(app);
 HelloController(app);
 UserController(app);
 AuthController(app);
+console.log(CONNECTION_STRING);
 app.listen(process.env.PORT || 4000);
