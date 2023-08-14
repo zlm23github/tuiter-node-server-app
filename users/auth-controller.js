@@ -40,8 +40,8 @@ const login = async(req, res) => {
 };
     
 const profile = (req, res) => {
-    // const currentUser = req.session["currentUser"];
-    const current = currentUser; 
+    const current = req.session["currentUser"];
+    // const current = currentUser; 
     if (!current) {
         res.sendStatus(404);
     return;
