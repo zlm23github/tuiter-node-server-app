@@ -51,12 +51,15 @@ const AuthController = (app) => {
 
     const update = async(req, res) => { 
         const current = currentUser;
+        console.log(current);
         // const current = currentUser;
         if (!current) {
             res.sendStatus(404);
             return;
         }
-        const newUpdate = await usersDao.updateUser(req.body);
+        const id = req.params.uid;
+        const newUpdate = await usersDao.updateUser(id, req.body);
+        console.log(newUpdate);
         currentUser = newUpdate;
         res.json(newUpdate);
 
@@ -65,7 +68,7 @@ const AuthController = (app) => {
     app.post("/api/users/login",    login);
     app.post("/api/users/profile",  profile);
     app.post("/api/users/logout",   logout);
-    app.put ("/api/users",          update);
+    app.put ("/api/users/:uid",     update);
 };
 export default AuthController;
 

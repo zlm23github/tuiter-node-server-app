@@ -17,7 +17,8 @@ app.use(cors(
     {
         credentials: true,
         origin: process.env.FRONTEND_URL
-        // ['http://localhost:3000']
+        
+        // process.env.FRONTEND_URL
     }
 ));
 const sessionOptions = {
@@ -41,4 +42,4 @@ TuitsController(app);
 HelloController(app);
 UserController(app);
 AuthController(app);
-app.listen(4000);
+app.listen(process.env.PORT || 4000);

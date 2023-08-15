@@ -32,6 +32,7 @@ export const createUser = (user) => {
 
 
 export const updateUser = (id, user) => {
+    console.log("dao");
     const status = usersModel.updateOne({ _id: id }, { $set: user });
     return status;
 };

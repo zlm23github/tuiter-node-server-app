@@ -6,7 +6,7 @@ const UserController = (app) => {
    app.get('/api/users/:uid', findUserById);
    app.post('/api/users', createUser);
    app.delete('/api/users/:uid', deleteUser);
-   app.put('/api/users/:uid', updateUser);
+   app.put('/api/users', updateUser);
 }
 const updateUser = async(req, res) => {
     const id = req.params.id;
