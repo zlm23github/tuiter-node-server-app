@@ -33,7 +33,7 @@ const AuthController = (app) => {
         
     };
         
-    const profile = (req, res) => {
+    const profile = async (req, res) => {
         const current = currentUser;
         // const current = currentUser; 
         console.log("in profile auth-controller", current);
