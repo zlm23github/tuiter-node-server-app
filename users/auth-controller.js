@@ -1,5 +1,6 @@
 import * as usersDao from "./users-dao.js";
 
+let currentUser;
 const AuthController = (app) => {
 
     const register = async(req, res) => {
@@ -11,7 +12,7 @@ const AuthController = (app) => {
         }
         const newUser = await usersDao.createUser(req.body);
         console.log(newUser);
-        req.session["currentUser"] = newUser;
+        currentUser = newUser;
         res.json(newUser);
     };
     
@@ -21,7 +22,7 @@ const AuthController = (app) => {
         if (username && password) {
             const user = await usersDao.findUserByCredentials(username, password);
             if (user) {
-            req.session["currentUser"] = user;
+            currentUser = user;
             res.json(user);
             } else {
             res.sendStatus(403);
@@ -33,7 +34,7 @@ const AuthController = (app) => {
     };
         
     const profile = (req, res) => {
-        const current = req.session["currentUser"];
+        const current = currentUser;
         // const current = currentUser; 
         console.log("in profile auth-controller", current);
         if (!current) {
@@ -49,14 +50,14 @@ const AuthController = (app) => {
     };
 
     const update = async(req, res) => { 
-        const current = req.session["currentUser"];
+        const current = currentUser;
         // const current = currentUser;
         if (!current) {
             res.sendStatus(404);
             return;
         }
         const newUpdate = await usersDao.updateUser(req.body);
-        req.session["currentUser"] = newUpdate;
+        currentUser = newUpdate;
         res.json(newUpdate);
 
     };
