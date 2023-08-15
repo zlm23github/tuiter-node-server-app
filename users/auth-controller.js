@@ -43,6 +43,7 @@ const login = async(req, res) => {
 const profile = (req, res) => {
     const current = req.session["currentUser"];
     // const current = currentUser; 
+    console.log("in profile auth-controller", current);
     if (!current) {
         res.sendStatus(404);
         return;
