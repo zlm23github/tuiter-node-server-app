@@ -16,7 +16,7 @@ const app = express()
 app.use(cors(
     {
         credentials: true,
-        origin: process.env.FRONTEND_URL
+        origin: ['http://localhost:3000']
     }
 ));
 const sessionOptions = {
@@ -35,9 +35,9 @@ app.use(session(sessionOptions));
   
   
 app.use(express.json());
-const port =  "http://localhost:4000";
+// const port =  "http://localhost:4000";
 TuitsController(app);
 HelloController(app);
 UserController(app);
 AuthController(app);
-app.listen(process.env.PORT || 4000);
+app.listen(4000);
